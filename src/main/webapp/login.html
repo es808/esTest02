@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- CSS 연결 -->
+<link rel="stylesheet" href="signUpTableCSS.css">
+
+	<!-- jQuery 사용 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+	<!-- javaScript -->
+<script type="text/javascript">
+/*버튼위에 커서를 올려놓으면 아이디와 비밀번호가 맞는지 확인하고
+맞으면 로그인 버튼이 활성화 되고(클릭이 가능하여 submit이 되고)
+맞지 않으면 버튼이 커서를 피해 좌우로 이동하는 프로그램
+*/
+
+$(function(){
+	/* 헤더 Bottom 내비게이션 */
+		$(".outer-menu").hover(function(){
+			$(this).find(".inner-menu").css("display","block");
+		},function(){
+			$(this).find(".inner-menu").css("display","none");
+		});
+});
+</script>
+</head>
+
+<body>
+	<!-- 헤더 -->
+	<header id="main-header">
+		<!-- 로고 -->
+		<h1 class="header-title"><a href="main.html">Header Title</a> </h1>
+		
+		<!-- 로그인/회원가입 -->
+		<nav id="header-navigation">
+			<a href="login.html">로그인</a>
+			<a href="signUpTable.html">회원가입</a>
+		</nav>
+	</header>
+			
+	<!-- navigation 메뉴 -->
+	<nav id="main-navigation">
+		<ul class="outer-menu">
+			<li><a href="main.html">홈</a> </li>
+			
+			<li>
+				<a href="#">연극</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">뮤지컬</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">콘서트</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">시사회</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+		</ul>
+		
+		<div class="search-form">
+			<form action="">
+				<input type="search" class="input-search">
+				<input type="submit" class="input-search-submit" value="검색">
+			</form>
+		</div>		
+	</nav>
+	
+
+	<div>
+        <form action="">
+            <input class="in" type="text" placeholder="아이디">
+            <input class="in" type="password" placeholder="비밀번호">
+            <button id="btnLogin" type="submit">로그인</button><br>
+            <button id="btnFind" type="submit">아이디/비밀번호 찾기</button><br>
+            
+            <!-- <input id="btnLogin" type="submit" value="로그인"><br> -->
+            <!-- <input id="btnFind" type="submit" value="아이디/비밀번호 찾기"><br> -->
+        </form>
+        <a href="#none">비밀번호를 잊어버리셨나요?</a>
+    </div>
+    
+
+	<!-- 푸터 -->
+	<div id="main-footer">
+		<footer>
+			<div id="main-footer-a"><a href="main.html">▲</a> </div>
+			<div>All right reserved. ⓒCodingDoit Corp.</div>
+		</footer>
+	</div>
+</body>
+</html>

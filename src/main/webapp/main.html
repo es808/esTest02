@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- CSS 연결 -->
+<link rel="stylesheet" href="mainCSS.css">
+
+	<!-- jQuery 사용 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+	<!-- masonry 사용 -->
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+	<!-- javaScript -->
+<script type="text/javascript">
+$(function(){
+	/* 헤더 Bottom 내비게이션 */
+		$(".outer-menu").hover(function(){
+			$(this).find(".inner-menu").css("display","block");
+		},function(){
+			$(this).find(".inner-menu").css("display","none");
+		});
+	
+	
+	/* 가운데 */
+		$(".slider_text").css("left",-300);
+		
+		$(".slider_text").each(function(index){
+			$(this).attr("data-index",index);
+		});
+		
+		$(".control_button").each(function(index){
+			$(this).attr("data-index",index);
+		});
+		
+		function moveSlider(index){
+			var willMoveLeft=-(index*800);
+			$(".slider_panel").animate({left:willMoveLeft},'slow');
+			
+			$(".control_button[data-index="+index+"]").addClass("active");
+			$(".control_button[data-index!="+index+"]").removeClass("active");
+			
+			$(".slider_text[data-index="+index+"]").show().animate({left:0},'slow');
+			$(".slider_text[data-index!="+index+"]").hide().animate({left:-300},'slow');
+			//show와 hide를 안해도 무방하나 background를 설정시 깔끔하게 보이기 위해선 쓰는게 좋음
+			//background가 투명할땐 상관 없음
+		}
+		
+		$(".control_button").click(function(){
+			var index=$(this).attr("data-index");
+			moveSlider(index);
+		});
+		
+		var randomNumber=Math.round(Math.random()*3);
+		moveSlider(randomNumber);
+		
+		$("#main-section").masonry({
+			itemSelector:'.paper',
+			columnWidth:210,
+			isAnimated:true,
+		});
+});
+</script>
+</head>
+
+<body>
+	<!-- 헤더 -->
+	<header id="main-header">
+		<!-- 로고 -->
+		<h1 class="header-title"><a href="main.html">Header Title</a> </h1>
+		
+		<!-- 로그인/회원가입 -->
+		<nav id="header-navigation">
+			<a href="login.html">로그인</a>
+			&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp
+			<a href="signUpTable.html">회원가입</a>
+		</nav>
+	</header>
+			
+	<!-- navigation 메뉴 -->
+	<nav id="main-navigation">
+		<ul class="outer-menu">
+			<li><a href="main.html">
+				<img alt="" src="./images/home1.png">
+			</a> </li>
+			
+			<li>
+				<a href="#">연극</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">뮤지컬</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">콘서트</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">시사회</a>
+				<ul class="inner-menu">
+					<li><a href="#">정보1</a> </li>
+					<li><a href="#">정보2</a> </li>
+					<li><a href="#">정보3</a> </li>
+					<li><a href="#">정보4</a> </li>
+					<li><a href="#">정보5</a> </li>
+				</ul>
+			</li>
+		</ul>
+		
+		<div class="search-form">
+			<form action="">
+				<input type="search" class="input-search">
+				<input type="submit" class="input-search-submit" value="검색">
+			</form>
+		</div>		
+	</nav>
+	
+	
+	<!-- 이미지 슬라이드 -->
+	<div class="animation_canvas">
+		<div class="slider_panel">
+			<img src="./images/movieposter1.jpg" class="slider_image">
+			<img src="./images/movieposter2.jpg" class="slider_image">
+			<img src="./images/movieposter3.jpg" class="slider_image">
+			<img src="./images/movieposter4.jpg" class="slider_image">
+			<img src="./images/movieposter5.jpg" class="slider_image">
+		</div>
+		
+		<div class="slider_text_panel">
+			<div class="slider_text">
+				<h1>에브리씽 에브리웨어 올 앳 원스</h1>
+			</div>
+			<div class="slider_text">
+				<h1>그래비티</h1>
+			</div>
+			<div class="slider_text">
+				<h1>헤어질 결심</h1>
+			</div>
+			<div class="slider_text">
+				<h1>사랑할 땐 누구나 최악이 된다</h1>
+			</div>
+			<div class="slider_text">
+				<h1>썸머 필름을 타고!</h1>
+			</div>
+		</div>
+		<div class="control_panel">
+			<div class="control_button"></div>
+			<div class="control_button"></div>
+			<div class="control_button"></div>
+			<div class="control_button"></div>
+			<div class="control_button"></div>
+		</div>
+	</div>
+	
+	<!-- 본문 영역 -->
+	<section id="main-section">
+		<!-- 영화 1 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter1.jpg"> </a>
+			</div>
+			<p class="paper-description">에브리씽 에브리웨어 올 앳 원스</p>
+			<div class="paper-content">
+				<button id="movie_info">영화정보</button>
+				<button id="movie_booked">예매</button>
+			</div>
+		</div>
+		
+		<!-- 영화 2 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter2.jpg"> </a>
+			</div>
+			<p class="paper-description">그래비티</p>
+			<div class="paper-content">
+				<button id="movie_info">영화정보</button>
+				<button id="movie_booked">예매</button>
+			</div>
+		</div>
+		
+		<!-- 영화 3 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter3.jpg"> </a>
+			</div>
+			<p class="paper-description">헤어질 결심</p>
+			<div class="paper-content">
+				<button id="movie_info">영화정보</button>
+				<button id="movie_booked">예매</button>
+			</div>
+		</div>
+		
+		<!-- 영화 4 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter4.jpg"> </a>
+			</div>
+			<p class="paper-description">사랑할 땐 누구나 최악이 된다</p>
+			<div class="paper-content">
+				<p class="paper-text">의학을 공부하던 스물아홉 율리에는 자신이 진짜 원하는 걸 찾아 세상으로 나온다. 
+파티에서 만난 만화가 악셀과 사랑에 빠진 율리에, 
+하지만 삶의 다른 단계에서 만난 두 사람은 각자 다른 걸 원했고 조금씩 어긋난다. 
+“내 삶에서 조연 역할을 하는 것 같아…”
+율리에는 인생의 다음 챕터로 달려나간다.</p>
+			</div>
+		</div>
+		
+		<!-- 영화 5 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter5.jpg"> </a>
+			</div>
+			<p class="paper-description">썸머 필름을 타고!</p>
+			<div class="paper-content">
+				<p class="paper-text">“이번 여름엔 너희들의 청춘을 내가 좀 쓸게”
+
+시대극 찐팬으로 영화 감독을 꿈꾸는 고교생 ‘맨발’.
+영화 동아리에서 자신이 기획한 <무사의 청춘>이 탈락되자
+직접 영화를 만들기 위해 절친 ‘킥보드’, ‘블루 하와이’와 드림팀을 결성한다.
+우연히 극장에서 만난 미래에서 온 의문의 소년 ‘린타로’를 주인공으로 전격 캐스팅한 ‘맨발’은
+꿈에 그리던 촬영을 시작하지만 예상치 못한 문제가 터지는데…
+
+영화도, 꿈도, 사랑도 Ready Action!
+올 여름 최고의 청춘+로맨스x시대극÷SF 걸작이 온다!</p>
+			</div>
+		</div>
+		
+		<!-- 영화 6 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter6.jpg"> </a>
+			</div>
+			<p class="paper-description">애프터 양</p>
+			<div class="paper-content">
+				<p class="paper-text">함께 살던 안드로이드 인간 ‘양’이 어느 날 작동을 멈추자
+제이크 가족은 그를 수리할 방법을 찾는다.
+그러던 중, ‘양’에게서 특별한 메모리 뱅크를 발견하고
+그의 기억을 탐험하기 시작하는데…
+
+무엇을 남기고 싶었어, 양?</p>
+			</div>
+		</div>
+		
+		<!-- 영화 7 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter7.jpg"> </a>
+			</div>
+			<p class="paper-description">벌새</p>
+			<div class="paper-content">
+				<p class="paper-text">나는 이 세계가 궁금했다
+1994년, 알 수 없는 거대한 세계와 마주한 14살 ‘은희’의
+아주- 보편적이고 가장- 찬란한 기억의 이야기</p>
+			</div>
+		</div>
+		
+		<!-- 영화 8 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter8.jpg"> </a>
+			</div>
+			<p class="paper-description">고양이를 부탁해</p>
+			<div class="paper-content">
+				<p class="paper-text">자유롭게 세상을 날고 싶은 엉뚱한 몽상가 태희 사회로 첫 발을 먼저 내딛은 현실주의자 혜주 생계를 위해 꿈은 잠시 뒤로 미뤄둔 꿈많은 모험가 지영 친구들의 든든한 버팀목 쌍둥이 비류와 온조 십대에 만나 모든 게 행복했고 즐거웠던 우리 각자 다른 네 갈래 길의 스무살을 만났다. 그렇게 서로의 길로 향하던 우리에게 갑자기 나타난 고양이 한 마리 우리를 하나의 길로 이어줄 수 있을까? 잘 있었니? 나도 네가 너무 보고 싶었어
+스무 살, 사랑스러운 아이들의 겨울야화</p>
+			</div>
+		</div>
+		
+		<!-- 영화 9 -->
+		<div class="paper">
+			<div class="paper-holder">
+				<a href="#"><img width="210" height="360" src="./images/movieposter9.jpg"> </a>
+			</div>
+			<p class="paper-description">옥자</p>
+			<div class="paper-content">
+				<p class="paper-text">강원도 산골 소녀 ‘미자’(안서현)에게 옥자는 10년 간 함께 자란 둘도 없는 친구이자 소중한 가족이다. 자연 속에서 평화롭게 지내던 어느 날, 글로벌 기업 ‘미란도’가 나타나 갑자기 옥자를 뉴욕으로 끌고가고, 할아버지(변희봉)의 만류에도 미자는 무작정 옥자를 구하기 위해 위험천만한 여정에 나선다. 극비리에 옥자를 활용한 ‘슈퍼돼지 프로젝트’를 추진 중인 ‘미란도 코퍼레이션’의 CEO ‘루시 미란도’(틸다 스윈튼), 옥자를 이용해 제2의 전성기를 꿈꾸는 동물학자 ‘죠니’(제이크 질렌할), 옥자를 앞세워 또 다른 작전을 수행하려는 비밀 동물 보호 단체 ALF까지. 각자의 이권을 둘러싸고 옥자를 차지하려는 탐욕스러운 세상에 맞서, 옥자를 구출하려는 미자의 여정은 더욱 험난해져 간다.</p>
+			</div>
+		</div>
+	</section>
+
+	
+	<!-- 푸터 -->
+	<div id="main-footer">
+		<footer>
+			<div id="main-footer-a"><a href="main.html">▲</a> </div>
+			<div>All right reserved. ⓒCodingDoit Corp.</div>
+		</footer>
+	</div>
+</body>
+</html>

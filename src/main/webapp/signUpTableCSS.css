@@ -1,0 +1,200 @@
+/* 초기화 */
+	*{
+		margin: 0; 
+		padding: 0;
+		font-family: 'Malgun Gothic', sans-serif;
+	}
+	
+	a{ 
+		text-decoration: none;
+	}
+	
+	img{ 
+		border: 0 
+	}
+	
+	li{ 
+		list-style: none; 
+	}
+	
+	html{ 
+		background: #ffffff; 
+	}
+	
+
+/* 헤더 */
+	#main-header{
+		height: 120px; 
+		background: #faf7f7;
+		position: relative; 
+	}
+
+	.header-title{
+		position: absolute; 
+		width: 300px; 
+		height: 100px; 
+		background: url('./images/logoSmall.png');
+		background-repeat: no-repeat;
+		text-indent: -9999px;
+		margin-left: 15px;
+		margin-top: 10px;
+	}
+	
+		
+	#header-navigation{
+		margin-left: 1280px;
+	}
+	
+	
+/* navigation 메뉴 */
+	#main-navigation{
+		position: sticky;
+		top: 0;
+	 	height: 40px;
+	 	background: #08348C;
+	 	border-top: 1px solid #facaca;
+	 	box-shadow: 1px 3px 3px rgba(34,25,25,0.4);
+	 }
+	
+	.search-form{ 
+		float: right; 
+	}
+	
+
+/* 풀다운 */
+	.outer-menu li{
+		float: left; 
+		width: 100px; 
+		height: 20px;
+		line-height: 20px; 
+		padding: 10px 0;
+		position: relative;
+		text-align: center; 
+		font-size: 13px; 
+		font-weight: bold;
+		z-index: 9999;
+	 }
+	 
+	 .outer-menu:hover{ 
+	 	background: #e1dfdf;
+	 }
+	 
+	 .outer-menu>li>a{
+		color: white;
+	}
+	 
+	 .inner-menu{
+	 	display: none;
+	 	background: #ffffff; 
+	 	margin-top: 10px; 
+	 	width: 100%; 
+	 	border-top: 1px solid #cccaca;
+	 	box-shadow: 0 2px 4px rgba(35,25,25,0.5);
+	 }
+	 
+	 .inner-menu a{
+	 	display: block;
+	 	padding: 5px 10px; 
+	 	z-index: 5000;
+	 }
+	 
+	 .inner-menu a:hover{
+	 	background: #e1dfdf;
+	 }
+ 
+ 
+/* 검색 양식 */
+	.search-form{
+		height: 40px; 
+		padding: 5px;
+		margin-right: 50px;
+	}
+	
+	.input-search{
+		display: block; 
+		float: left;
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+		border-radius: 15px 0 0 15px;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+		width: 300px; 
+		height: 30px;
+		font-size: 16px; 
+		color: #555555;
+	}
+	
+	.input-search:focus{
+		border-color: rgba(82,168,236,0.8);
+		outline: 0;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+	}
+	
+	.input-search-submit{
+		/* display: block; */
+		/* float: left; */
+		width: 60px;
+		height: 30px;
+		border-radius: 0 15px 15px 0;
+		border: 1px solid #cccccc;
+		margin-left: -1px;
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+
+/* 테이블 */
+	table{
+		width: 80%;
+		table-layout: fixed;
+		padding-top: 35px;
+		margin: auto;
+	}
+	
+	th{
+		text-align: left;
+	}
+	
+	tr{
+		height: 60px;
+	}
+
+	.signUp-notes-id{
+		margin-left: 53px;
+		padding-top: 5px;
+		font-size: 12px;
+	}
+	
+	.signUp-notes-pwd{
+		margin-left: 70px;
+		padding-top: 5px;
+		font-size: 12px;
+	}
+	
+	.signUp-notes-phone{
+		margin-left: 92px;
+		padding-top: 5px;
+		font-size: 12px;
+	}
+	
+	
+	
+	
+/* 푸터 */
+	#main-footer{
+		padding-top: 40px;
+	}
+
+	
+	#main-footer>footer>#main-footer-a>a{
+		color: #F2AE30;
+		font-size: 20px;
+		text-align: center;
+	}
+	
+	footer{
+		background: #08348C;
+		color: white;
+		font-size: 12px;
+		text-align: center;
+		line-height: 40px;
+	}
